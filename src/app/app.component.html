@@ -9,5 +9,11 @@
             <app-success-alert></app-success-alert>
             <app-warning-alert></app-warning-alert>
         </div>
+        <div class="col-xs-12">
+            <label>Enter who made these changes</label>
+            <input type="text" class="form-control" [(ngModel)]="username">
+            <p [hidden]="isUsernameEmpty()">The changes were made by: {{ username }}</p>
+            <button class="btn btn-primary" [disabled]="isUsernameEmpty()" (click)="resetUsername()">Reset</button>
+        </div>
     </div>
 </div>

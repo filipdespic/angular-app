@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { isEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-servers',
@@ -21,7 +22,7 @@ export class ServersComponent {
   }
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server was created';
+    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
   onUpdateServerName(event: Event) {
