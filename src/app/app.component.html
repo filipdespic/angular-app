@@ -5,15 +5,26 @@
             <hr>
             <app-servers></app-servers> 
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="margin-top: 20px;">
             <app-success-alert></app-success-alert>
             <app-warning-alert></app-warning-alert>
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="margin-top: 20px;">
             <label>Enter who made these changes</label>
             <input type="text" class="form-control" [(ngModel)]="username">
             <p [hidden]="isUsernameEmpty()">The changes were made by: {{ username }}</p>
             <button class="btn btn-primary" [disabled]="isUsernameEmpty()" (click)="resetUsername()">Reset</button>
+        </div>
+        <div class="col-xs-12" style="margin-top: 20px;">
+            <button class="btn btn-primary" (click)="toggleDetails()">Toggle Details</button>
+            <p *ngIf="passwordVisible">Pst! I am revealing you the secret password! It is: tuna</p>
+        </div>
+        <div class="col-xs-12" style="margin-top: 20px;">
+            <p>Click log:</p>
+            <p 
+            *ngFor="let logItem of clickLog" 
+            [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
+            [ngClass]="{'white-text': logItem >= 5}">{{ logItem }}</p>
         </div>
     </div>
 </div>
